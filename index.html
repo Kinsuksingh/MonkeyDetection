@@ -89,31 +89,32 @@
     <main class="flex-1 overflow-hidden">
         <div class="h-full w-full flex flex-col md:flex-row">
             <!-- Left panel - Camera feed (30% on desktop, 100% on mobile) -->
-            <div class="h-1/2 md:h-full md:w-3/5 p-4 flex flex-col">
-                <div class="bg-white rounded-xl shadow-lg h-full flex flex-col overflow-hidden">
-                    <div class="p-4 border-b border-natural-200 flex justify-between items-center">
-                        <h2 class="text-lg font-bold text-primary-700">Video Feed</h2>
-                        <div id="status-indicator" class="hidden">
-                            <div class="flex items-center space-x-2 text-sm">
-                                <span class="relative flex h-3 w-3">
-                                    <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-                                    <span class="relative inline-flex rounded-full h-3 w-3 bg-emerald-500"></span>
-                                </span>
-                                <span class="text-emerald-600">Detection Active</span>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div id="webcam-container" class="flex-1 flex justify-center items-center bg-natural-50 overflow-hidden p-2">
-                        <div id="camera-placeholder" class="flex flex-col items-center text-natural-500">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-20 w-20 mb-2 text-natural-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" />
-                            </svg>
-                            <span class="text-natural-500">Camera feed will appear here</span>
-                        </div>
-                    </div>
+<div class="h-1/2 md:h-full md:w-3/5 p-4 flex flex-col">
+    <div class="bg-gradient-to-br from-natural-50 to-natural-100 rounded-xl shadow-lg h-full flex flex-col overflow-hidden">
+        <div class="p-4 border-b border-natural-200 flex justify-between items-center">
+            <h2 class="text-lg font-bold text-primary-700">Video Feed</h2>
+            <div id="status-indicator" class="hidden">
+                <div class="flex items-center space-x-2 text-sm">
+                    <span class="relative flex h-3 w-3">
+                        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                        <span class="relative inline-flex rounded-full h-3 w-3 bg-emerald-500"></span>
+                    </span>
+                    <span class="text-emerald-600">Detection Active</span>
                 </div>
             </div>
+        </div>
+        
+        <div id="webcam-container" class="flex-1 flex justify-center items-center bg-gradient-to-bl from-natural-100 to-natural-200 overflow-hidden p-2 rounded-b-xl">
+            <div id="camera-placeholder" class="flex flex-col items-center text-natural-500">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-20 w-20 mb-2 text-natural-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" />
+                </svg>
+                <span class="text-natural-500">Camera feed will appear here</span>
+            </div>
+        </div>
+    </div>
+</div>
+
             
             <!-- Right panel - Controls and results (70% on desktop, 100% on mobile) -->
             <div class="h-1/2 md:h-full md:w-2/5 p-4 flex flex-col">
