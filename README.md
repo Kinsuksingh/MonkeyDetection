@@ -17,11 +17,11 @@ Developed specifically for areas prone to monkey disturbances, this system helps
 * **Machine Learning**: TensorFlow.js, Google Teachable Machine
 * **Hardware**: Raspberry Pi (for deployment)
 
-## Installation
+## Project SetUp
 1. Clone the Repository
    ```bash
    git clone https://github.com/Kinsuksingh/MonkeyDetection.git
-   cd monkey-detection-system
+   cd MonkeyDetection
    ```
 
 
@@ -33,7 +33,7 @@ Developed specifically for areas prone to monkey disturbances, this system helps
    ```
 
 ## Live Demo
-Try the system yourself: [Live Monkey Menace Prevention Demo](https://monkey-detection-demo.vercel.app)
+Try the system yourself: [https://kinsuksingh.github.io/MonkeyDetection/](https://kinsuksingh.github.io/MonkeyDetection/)
 
 **Note:** For the live demo, you can use sample images of monkeys or test with your webcam. Permission will be requested to access your camera. For privacy reasons, no video data is stored on our servers.
 
