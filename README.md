@@ -20,7 +20,7 @@ Developed specifically for areas prone to monkey disturbances, this system helps
 ## Installation
 1. Clone the Repository
    ```bash
-   git clone https://github.com/yourusername/monkey-detection-system.git
+   git clone https://github.com/Kinsuksingh/MonkeyDetection.git
    cd monkey-detection-system
    ```
 
