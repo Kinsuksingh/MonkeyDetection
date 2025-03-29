@@ -30,52 +30,62 @@ function initAudio() {
     updateThresholdDisplay();
 }
 
-// Stop detection function
 function stopDetection() {
     if (!isRunning) return;
-    
+
     isRunning = false;
     if (animationFrameId) {
         window.cancelAnimationFrame(animationFrameId);
         animationFrameId = null;
     }
-    
-    if (webcam) {
+
+    // Stop the webcam feed
+    if (webcam && typeof webcam.stop === "function") {
         webcam.stop();
     }
-    
+
+    // Remove the video element if exists
+    const webcamContainer = document.getElementById("webcam-container");
+    const videoElement = webcamContainer.querySelector("video"); 
+    if (videoElement) {
+        videoElement.srcObject = null;  // Release camera
+        videoElement.remove();  // Remove from DOM
+    }
+
     // Stop any playing alert
     stopMonkeyAlert();
-    
+
     // Reset UI
     startBtn.disabled = false;
     startBtn.classList.remove("opacity-50", "cursor-not-allowed");
     startBtn.textContent = "Start Camera";
-    
+
     stopBtn.disabled = true;
     stopBtn.classList.add("opacity-50", "cursor-not-allowed");
-    
-    // Remove webcam canvas
-    const webcamContainer = document.getElementById("webcam-container");
-    while (webcamContainer.firstChild) {
-        if (webcamContainer.firstChild.id === "camera-placeholder") break;
-        webcamContainer.removeChild(webcamContainer.firstChild);
-    }
-    
+
+    // Remove any additional canvas elements
+    [...webcamContainer.children].forEach(child => {
+        if (child.tagName === "CANVAS") child.remove();
+    });
+
     // Show placeholder
-    document.getElementById("camera-placeholder").style.display = "flex";
-    
-    // Hide status indicator
-    statusIndicator.classList.add("hidden");
-    
-    // Reset result
+    document.getElementById("camera-placeholder").classList.remove("hidden");
+
+    // Hide status indicator safely
+    const statusIndicator = document.getElementById("status-indicator");
+    if (statusIndicator) {
+        statusIndicator.classList.add("hidden");
+    }
+
+    // Reset detection results
     resultText.textContent = "Detection stopped";
     resultText.className = "text-lg font-medium text-natural-700";
     monkeyBar.style.width = "0%";
     notMonkeyBar.style.width = "0%";
     monkeyProb.textContent = "0%";
-    notMonkeyProb.textContent = "0%";
+    notMonkeyProb.textContent = "0%"; 
 }
+
 
 // Toggle sound on/off
 document.addEventListener('DOMContentLoaded', function() {
